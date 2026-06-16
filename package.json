@@ -13,5 +13,10 @@
   },
   "dependencies": {
     "astro": "^6.4.6"
+  },
+  "devDependencies": {
+    "@unocss/preset-mini": "^66.7.2",
+    "sass": "^1.101.0",
+    "unocss": "^66.7.2"
   }
 }
