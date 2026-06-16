@@ -1,0 +1,8 @@
+---
+import { getThemeColorHexByName } from '../shared/util/themeColors';
+const { color = 'ut-burntorange' } = Astro.props;
+const bg = getThemeColorHexByName(color) || '#BF5700';
+---
+<button class="btn" style={`background: ${bg}; color: #fff;`}>
+  <slot />
+</button>
