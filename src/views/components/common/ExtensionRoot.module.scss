@@ -1,9 +1,9 @@
 @use 'sass:meta';
-@use 'src/views/styles/base.module.scss';
+@use '../../styles/base.module.scss';
 
 @layer preflights {
   .extensionRoot {
-    @include meta.load-css('tailwind-compat');
+    @include meta.load-css('../../styles/tailwind-compat');
   }
 }
 

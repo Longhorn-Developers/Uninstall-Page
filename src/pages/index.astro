@@ -1,19 +1,29 @@
 ---
-// --- is a fence, it contains the Component Script in Astro
-// this is where you can put in actual js, runs at buildtime
-// the component TEMPLATE is what gets sent to browser
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/Button.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<main class="mx-auto max-w-3xl p-6">
+		<h1 class="text-3xl font-semibold mb-4">Thanks for using UT Registration Plus</h1>
+
+		<p class="mb-6 text-lg">
+			If we've helped you over the years, please consider leaving us a review with your thoughts.
+			Congrats on graduating!
+		</p>
+
+		<div class="flex items-center gap-3 mb-6">
+			<a class="link" href="https://github.com/Longhorn-Developers/UT-Registration-Plus/issues/870" target="_blank" rel="noopener">Read issue #870</a>
+			<a class="link" href="https://github.com/Longhorn-Developers/UT-Registration-Plus/pull/871" target="_blank" rel="noopener">See PR #871</a>
+			<Button color="ut-burntorange">Leave a review</Button>
+		</div>
+
+		<section class="mt-8 p-4 rounded-1" style="background: var(--un-color-ut-offwhite, #D6D2C4);">
+			<h2 class="text-xl font-medium mb-2">Why this page?</h2>
+			<p>
+				Most extensions show a simple uninstall page instead of a modal. This is less intrusive
+				and gives users a chance to leave feedback if they want.
+			</p>
+		</section>
+	</main>
+</BaseLayout>
