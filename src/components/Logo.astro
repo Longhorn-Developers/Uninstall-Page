@@ -1,17 +1,44 @@
 ---
+interface Props {
+  size?: "small" | "large";
+  class?: string;
+}
+
+const { size = "large", class: className = "" } = Astro.props;
 ---
 
-<!-- LargeLogo equivalent -->
-<div class="flex items-center gap-3">
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12">
-    <circle cx="20" cy="20" r="20" fill="#BF5700" />
-    <circle cx="20" cy="20" r="15.5" stroke="white" stroke-width="3" />
-    <rect x="18" y="10" width="4" height="19.5489" fill="white" />
-    <rect x="10" y="22" width="4" height="19.5489" transform="rotate(-90 10 22)" fill="white" />
+<div
+  class:list={[
+    "flex items-center",
+    size === "small" ? "gap-2" : "gap-spacing-3",
+    className,
+  ]}
+>
+  <svg
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class:list={[size === "small" ? "w-10 h-10" : "w-12 h-12"]}
+  >
+    <circle cx="20" cy="20" r="20" fill="#BF5700"></circle>
+    <circle cx="20" cy="20" r="15.5" stroke="white" stroke-width="3"></circle>
+    <rect x="18" y="10" width="4" height="19.5489" fill="white"></rect>
+    <rect
+      x="10"
+      y="22"
+      width="4"
+      height="19.5489"
+      transform="rotate(-90 10 22)"
+      fill="white"></rect>
   </svg>
 
-  <div class="mt-1 flex flex-col text-[1.35rem] font-medium leading-[1em]">
+  <div
+    class:list={[
+      "mt-1 flex flex-col font-medium leading-[1em]",
+      size === "small" ? "text-lg" : "text-[1.35rem] screenshot:flex",
+    ]}
+  >
     <p class="text-nowrap text-ut-burntorange">UT Registration</p>
-    <p class="text-ut-burntorange">Plus </p>
+    <p class="text-ut-burntorange">Plus</p>
   </div>
 </div>
