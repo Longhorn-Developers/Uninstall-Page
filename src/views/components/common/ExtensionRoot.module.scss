@@ -2,64 +2,64 @@
 @use '../../styles/base.module.scss';
 
 @layer preflights {
-  .extensionRoot {
-    @include meta.load-css('../../styles/tailwind-compat');
-  }
+    .extensionRoot {
+        @include meta.load-css('../../styles/tailwind-compat');
+    }
 }
 
 @layer default {
-  .extensionRoot {
-    @apply font-sans;
-    color: #303030;
-    * { @apply font-sans; }
-    button, a, input, select, textarea, [tabindex]:not([tabindex='-1']) { @apply focusable; }
-    button, [role='button'] { cursor: pointer; }
-    ::-webkit-scrollbar { width: 14px; height: 14px; background: transparent; }
-    ::-webkit-scrollbar-thumb { border: 3px solid #fff; border-radius: 7px; background: rgb(218,220,224); }
-  }
-}
+    span {
+        font-family: inherit;
+    }
 
-/* additional more-complete rules copied from upstream */
-span { font-family: inherit; }
+    .extensionRoot {
+        @apply font-sans;
+        /* base text / reset values requested */
+        color: #303030;
 
-.extensionRoot {
-  // Global focus-visible styles for all interactive elements
-  button,
-  a,
-  input,
-  select,
-  textarea,
-  [tabindex]:not([tabindex='-1']) {
-    @apply focusable;
-  }
+        // fix font-family on injected pages
+        * {
+            @apply font-sans;
+        }
 
-  button,
-  [role='button'] {
-    cursor: pointer;
-  }
+        // Global focus-visible styles for all interactive elements
+        button,
+        a,
+        input,
+        select,
+        textarea,
+        [tabindex]:not([tabindex='-1']) {
+            @apply focusable;
+        }
 
-  [data-rfd-drag-handle-context-id=':r1:'] {
-    cursor: move;
-  }
+        button,
+        [role='button'] {
+            cursor: pointer;
+        }
 
-  ::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
-    background: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    border: 3px solid #fff;
-    border-radius: 7px;
-    min-height: 40px;
-    box-shadow: none;
-    background: rgb(218, 220, 224);
-  }
-  :hover::-webkit-scrollbar-thumb,
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(189, 193, 198);
-  }
+        [data-rfd-drag-handle-context-id=':r1:'] {
+            cursor: move;
+        }
 
-  ::-webkit-scrollbar-thumb:active {
-    background: rgb(128, 134, 139);
-  }
+        ::-webkit-scrollbar {
+            width: 14px;
+            height: 14px;
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            border: 3px solid #fff;
+            border-radius: 7px;
+            min-height: 40px;
+            box-shadow: none;
+            background: rgb(218, 220, 224);
+        }
+        :hover::-webkit-scrollbar-thumb,
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(189, 193, 198);
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: rgb(128, 134, 139);
+        }
+    }
 }

@@ -1,7 +1,3 @@
-// Minimal base module to satisfy ExtensionRoot imports.
-// Copy or expand from original repo as needed.
-
-@use 'sass:meta';
-
-// Provide a placeholder stylesheet name for meta.load-css in ExtensionRoot
-@mixin tailwind-compat() {}
+@use './colors.module.scss';
+@use './fonts.module.scss';
+@use './utils.module.scss';

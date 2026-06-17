@@ -1,32 +1,32 @@
+@each $weight in '100' '200' '300' '400' '500' '600' '700' '800' '900' {
+    @font-face {
+        font-family: 'Inter';
+        src: url('@public/fonts/inter-#{$weight}.woff2') format('woff2');
+        font-display: auto;
+        font-style: normal;
+        font-weight: #{$weight};
+    }
+}
+
+@font-face {
+    font-family: 'Roboto Flex Local';
+    src: url('@public/fonts/roboto-flex.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Mono Local';
+    src: url('@public/fonts/roboto-mono.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
-@each $weight in '100' '200' '300' '400' '500' '600' '700' '800' '900' {
-  @font-face {
-    font-family: 'Inter';
-    src: url('@public/fonts/inter-#{$weight}.woff2') format('woff2');
-    font-display: auto;
-    font-style: normal;
-    font-weight: #{$weight};
-  }
-}
-
-@font-face {
-  font-family: 'Roboto Flex Local';
-  src: url('@public/fonts/roboto-flex.woff2') format('woff2');
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Roboto Mono Local';
-  src: url('@public/fonts/roboto-mono.woff2') format('woff2');
-  font-display: swap;
-  font-style: normal;
-}
 
 $medium_size: 16px;
 
 :export {
-  medium_size: $medium_size;
+    medium_size: $medium_size;
 }
