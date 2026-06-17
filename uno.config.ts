@@ -10,8 +10,7 @@ import { colors } from './src/shared/types/ThemeColors';
 export default defineConfig({
     outputToCssLayers: true,
     content: {
-        // yoink from both filesystem and build pipeline to fix dev
-        filesystem: ['./src/**/*.{jsx,tsx}'],
+        filesystem: ['./src/**/*.{astro,html,js,ts,jsx,tsx,md}'],
         pipeline: {
             include: [/\.(vue|svelte|[jt]sx|vine.ts|mdx?|astro|elm|php|phtml|marko|html)($|\?)/],
         },
