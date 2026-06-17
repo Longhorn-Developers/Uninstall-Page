@@ -10,10 +10,9 @@ import { colors } from './src/shared/types/ThemeColors';
 export default defineConfig({
     outputToCssLayers: true,
     content: {
-        filesystem: ['./src/**/*.{astro,html,js,ts,jsx,tsx,md}'],
-        pipeline: {
-            include: [/\.(vue|svelte|[jt]sx|vine.ts|mdx?|astro|elm|php|phtml|marko|html)($|\?)/],
-        },
+        inline: [
+            './src/**/*.{astro,html,js,ts,jsx,tsx,md}'
+        ]
     },
     rules: [
         [
