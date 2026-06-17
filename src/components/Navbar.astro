@@ -1,0 +1,52 @@
+---
+import Logo from "./Logo.astro";
+const calendarPageUrl = "#";
+export const LHD_BIRTHDAY = { month: 0, day: 9 };
+export const BIRTHDAY_CELEBRATION_DURATION = 5000;
+export const BIRTHDAY_CELEBRATION_DEBOUNCE = 2000;
+export function isBirthday(date = new Date()): boolean {
+  return (
+    date.getMonth() === LHD_BIRTHDAY.month &&
+    date.getDate() === LHD_BIRTHDAY.day
+  );
+}
+---
+
+<header
+  class="flex items-center gap-5 overflow-x-auto overflow-y-hidden border-b border-ut-offwhite px-7 py-4 md:overflow-x-hidden"
+>
+  <a href={calendarPageUrl} title="Back to Calendar">
+    <Logo />
+  </a>
+
+  <div
+    class="mx-2 self-center md:mx-4"
+    style="width:2px;height:2.5rem;background:var(--un-color-ut-offwhite,#D6D2C4)"
+  >
+  </div>
+
+  <div class="flex flex-1 items-center gap-2">
+    <h1 class="text-ut-burntorange normal-case text-xl font-semibold">
+      Settings
+    </h1>
+    {
+      isBirthday() && (
+        <button
+          type="button"
+          class="bg-transparent px-4 text-sm text-ut-burntorange transition-transform hover:scale-110"
+          title="Click to celebrate!"
+        >
+          🎉 Happy Birthday 🎉
+        </button>
+      )
+    }
+  </div>
+
+  <div
+    class="hidden flex-row items-center justify-end gap-7 screenshot:hidden lg:flex"
+  >
+    <div class="mr-4 text-sm text-ut-black">
+      v{import.meta.env.VITE_PACKAGE_VERSION}{import.meta.env.DEV ? "-dev" : ""}
+    </div>
+  </div>
+</header>

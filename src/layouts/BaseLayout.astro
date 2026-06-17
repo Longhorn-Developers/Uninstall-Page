@@ -1,5 +1,6 @@
 ---
 import styles from '@views/components/common/ExtensionRoot.module.scss';
+import Navbar from '@components/Navbar.astro';
 ---
 <!-- i actually dont know if this is needed cuz you can just import the root to index.astro, but whatever, it could be good for scaling -->
 <!doctype html>
@@ -9,6 +10,7 @@ import styles from '@views/components/common/ExtensionRoot.module.scss';
     <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
   <body class={styles.extensionRoot}>
+    <Navbar />
     <slot />
   </body>
 </html>

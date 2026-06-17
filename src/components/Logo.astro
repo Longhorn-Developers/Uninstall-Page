@@ -1,0 +1,19 @@
+---
+const beta = import.meta.env.VITE_BETA_BUILD;
+const version = import.meta.env.VITE_PACKAGE_VERSION;
+---
+
+<!-- LargeLogo equivalent -->
+<div class="flex items-center gap-3">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12">
+    <circle cx="20" cy="20" r="20" fill="#BF5700" />
+    <circle cx="20" cy="20" r="15.5" stroke="white" stroke-width="3" />
+    <rect x="18" y="10" width="4" height="19.5489" fill="white" />
+    <rect x="10" y="22" width="4" height="19.5489" transform="rotate(-90 10 22)" fill="white" />
+  </svg>
+
+  <div class="mt-1 flex flex-col text-[1.35rem] font-medium leading-[1em]">
+    <p class="text-nowrap text-ut-burntorange">UT Registration</p>
+    <p class="text-ut-burntorange">Plus <span class="text-sm">{beta ? `(${version})` : ''}</span></p>
+  </div>
+</div>
