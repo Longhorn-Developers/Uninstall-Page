@@ -16,6 +16,10 @@
   },
   "devDependencies": {
     "@unocss/preset-mini": "^66.7.2",
+    "@unocss/preset-uno": "^66.7.2",
+    "@unocss/preset-web-fonts": "^66.7.2",
+    "@unocss/transformer-directives": "^66.7.2",
+    "@unocss/transformer-variant-group": "^66.7.2",
     "sass": "^1.101.0",
     "unocss": "^66.7.2"
   }
