@@ -5,14 +5,12 @@ import { getThemeColorHexByName } from "@shared/util/themeColors";
 ---
 
 <BaseLayout>
-  <main class="min-h-screen flex items-center justify-center p-6" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+  <main class="min-h-screen flex items-center justify-center p-6">
     <div
       class="bg-white rounded-xl shadow-lg border border-gray-100 w-full max-w-2xl p-8 flex flex-col items-center text-center mx-auto"
     >
-      <!-- for some reason using !text-burntorange etc did not work with unocss? Someone can fix this later -->
       <h1
-        class="text-4xl font-bold mb-4"
-        style={`color: ${getThemeColorHexByName("ut-burntorange")}`}
+        class="text-4xl font-bold mb-4 text-ut-burntorange"}
       >
         Thanks for using UT Registration Plus
       </h1>
@@ -26,10 +24,7 @@ import { getThemeColorHexByName } from "@shared/util/themeColors";
         <Button color="ut-burntorange">Leave a review</Button>
       </div>
 
-      <section
-        class="mt-8 p-4 rounded-lg text-left w-full"
-        style={`background: var(--un-color-ut-offwhite, #D6D2C4); color: ${getThemeColorHexByName("ut-burntorange")}`}
-      >
+      <section class="mt-8 p-4 rounded-lg text-left w-full bg-theme-offwhite text-ut-burntorange">
         <h2 class="text-xl font-medium mb-2">Why this page?</h2>
         <p>
           This will be a rounded square i havent figured out what to say. Omg
