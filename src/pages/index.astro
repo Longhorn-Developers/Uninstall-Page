@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Button from "@components/Button.astro";
-import { getThemeColorHexByName } from "@shared/util/themeColors";
----
+import splashText from "@/shared/other/insideJokes";
 
+const randomSplash = splashText[Math.floor(Math.random() * splashText.length)];
+---
 <BaseLayout>
   <main class="min-h-screen flex items-center justify-center p-6">
     <div
@@ -14,31 +15,35 @@ import { getThemeColorHexByName } from "@shared/util/themeColors";
       </h1>
 
       <p class="mb-4 text-lg">
-        Thank you for making us a part of your university journey. If we've helped you over the years, <b>please consider leaving us a review</b>!
+        Thank you for making us a part of your university journey. If we've
+        helped you over the years, <b>please consider leaving us a review</b>!
       </p>
 
       <p class="text-sm italic text-gray-500 mb-6">
-        Graduating this year? Huge congratulations on reaching the finish line! 🤘
+        Graduating this year? Huge congratulations on reaching the finish line!
+        🤘
       </p>
 
       <div class="flex flex-row items-center justify-center gap-3 mb-6 w-full">
-        <a href="https://chromewebstore.google.com/detail/ut-registration-plus/hboadpjkoaieogjimneceaahlppnipaa/reviews?hl=en" class="no-underline">
-          <Button color="ut-burntorange" variant="filled">Leave a review</Button>
+        <a
+          href="https://chromewebstore.google.com/detail/ut-registration-plus/hboadpjkoaieogjimneceaahlppnipaa/reviews?hl=en"
+          class="no-underline"
+        >
+          <Button color="ut-burntorange" variant="filled">Leave a review</Button
+          >
         </a>
-        <a href="https://github.com/Longhorn-Developers/UT-Registration-Plus/issues/new" class="no-underline">
-          <Button color="ut-burntorange" variant="outline">Suggest new features!</Button>
+        <a
+          href="https://github.com/Longhorn-Developers/UT-Registration-Plus/issues/new"
+          class="no-underline"
+        >
+          <Button color="ut-burntorange" variant="outline"
+            >Suggest new features!</Button
+          >
         </a>
       </div>
-
-      <section
-        class="mt-8 p-4 rounded-lg text-left w-full bg-theme-offwhite text-ut-burntorange"
-      >
-        <h2 class="text-xl font-medium mb-2">Why this page?</h2>
-        <p>
-          This will be a rounded square i havent figured out what to say. Omg
-          maybe ill put our inside jokes here
-        </p>
-      </section>
+      <p class="text-sm italic text-gray-500 mb-6">
+        {randomSplash}
+      </p>
     </div>
   </main>
 </BaseLayout>
