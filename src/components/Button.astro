@@ -1,8 +1,69 @@
 ---
-import { getThemeColorHexByName } from '../shared/util/themeColors';
-const { color = 'ut-burntorange' } = Astro.props;
-const bg = getThemeColorHexByName(color) || '#BF5700';
+import type { HTMLAttributes } from 'astro/types';
+import type { ThemeColor } from '@shared/types/ThemeColors';
+import { getThemeColorHexByName, getThemeColorRgbByName } from '@shared/util/themeColors';
+
+interface Props extends HTMLAttributes<'button'> {
+    variant?: 'filled' | 'outline' | 'minimal';
+    size?: 'regular' | 'small' | 'mini';
+    color: ThemeColor;
+    class?: string;
+    isIconOnly?: boolean;
+}
+
+const {
+    variant = 'filled',
+    size = 'regular',
+    color,
+    class: className,
+    isIconOnly: explicitIsIconOnly,
+    style,
+    ...rest
+} = Astro.props;
+
+const hasIconSlot = Astro.slots.has('icon');
+const hasDefaultSlot = Astro.slots.has('default');
+
+const isIconOnly = explicitIsIconOnly ?? (hasIconSlot && !hasDefaultSlot);
+
+const colorHex = getThemeColorHexByName(color as any);
+const colorRgb = getThemeColorRgbByName(color as any)?.join(' ');
+
+const textSizeClass = size === 'regular' ? 'text-base font-medium' : 'text-sm font-normal';
+
+const customStyle = typeof style === 'string' ? style : '';
+const buttonStyle = `color: ${colorHex}; background-color: rgb(${colorRgb} / var(--un-bg-opacity, 1)); ${customStyle}`;
 ---
-<button class="btn" style={`background: ${bg}; color: #fff;`}>
-  <slot />
+
+<button
+    class:list={[
+        'btn',
+        {
+            'text-white! bg-opacity-100 hover:enabled:shadow-md active:enabled:shadow-sm shadow-black/20':
+                variant === 'filled',
+            'bg-opacity-0 border-current hover:enabled:bg-opacity-8 border stroke-width-[1px]':
+                variant === 'outline',
+            'bg-opacity-0 border-none hover:enabled:bg-opacity-8': variant === 'minimal',
+            'h-10 gap-spacing-3 px-spacing-5': size === 'regular' && !isIconOnly,
+            'h-10 w-10 p-spacing-2': size === 'regular' && isIconOnly,
+            'h-[35px] gap-spacing-3 px-spacing-3': size === 'small' && !isIconOnly,
+            'h-[35px] w-[35px] p-spacing-2': size === 'small' && isIconOnly,
+            'h-6 p-spacing-2': size === 'mini' && !isIconOnly,
+            'h-6 w-6 p-0': size === 'mini' && isIconOnly,
+        },
+        className
+    ]}
+    style={buttonStyle}
+    {...rest}
+>
+    {hasIconSlot && (
+        <span class="inline-flex h-6 w-6 items-center justify-center">
+            <slot name="icon" />
+        </span>
+    )}
+    {!isIconOnly && (
+        <span class:list={["inline-flex translate-y-0.08 items-center gap-2", textSizeClass]}>
+            <slot />
+        </span>
+    )}
 </button>
