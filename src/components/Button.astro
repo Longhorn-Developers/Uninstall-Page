@@ -4,21 +4,21 @@ import type { ThemeColor } from '@shared/types/ThemeColors';
 import { getThemeColorHexByName, getThemeColorRgbByName } from '@shared/util/themeColors';
 
 interface Props extends HTMLAttributes<'button'> {
-    variant?: 'filled' | 'outline' | 'minimal';
-    size?: 'regular' | 'small' | 'mini';
-    color: ThemeColor;
-    class?: string;
-    isIconOnly?: boolean;
+	variant?: 'filled' | 'outline' | 'minimal';
+	size?: 'regular' | 'small' | 'mini';
+	color: ThemeColor;
+	class?: string;
+	isIconOnly?: boolean;
 }
 
 const {
-    variant = 'filled',
-    size = 'regular',
-    color,
-    class: className,
-    isIconOnly: explicitIsIconOnly,
-    style,
-    ...rest
+	variant = 'filled',
+	size = 'regular',
+	color,
+	class: className,
+	isIconOnly: explicitIsIconOnly,
+	style,
+	...rest
 } = Astro.props;
 
 const hasIconSlot = Astro.slots.has('icon');
