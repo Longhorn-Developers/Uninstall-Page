@@ -1,32 +1,41 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Button from '@components/Button.astro';
-import { getThemeColorHexByName } from '@shared/util/themeColors';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
+import { getThemeColorHexByName } from "@shared/util/themeColors";
 ---
 
 <BaseLayout>
-	<main class="mx-auto max-w-3xl p-6">
-		<!-- for some reason using !text-burntorange etc did not work with unocss? Someone can fix this later -->
-				<h1 class="text-4xl font-bold mb-4" style={`color: ${getThemeColorHexByName('ut-burntorange')}`}>
-					Thanks for using UT Registration Plus
-				</h1>
+  <main class="min-h-screen flex items-center justify-center p-6" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem;">
+    <div
+      class="bg-white rounded-xl shadow-lg border border-gray-100 w-full max-w-2xl p-8 flex flex-col items-center text-center mx-auto"
+    >
+      <!-- for some reason using !text-burntorange etc did not work with unocss? Someone can fix this later -->
+      <h1
+        class="text-4xl font-bold mb-4"
+        style={`color: ${getThemeColorHexByName("ut-burntorange")}`}
+      >
+        Thanks for using UT Registration Plus
+      </h1>
 
-		<p class="mb-6 text-lg">
-			If we've helped you over the years, please consider leaving us a review with your thoughts.
-			Congrats on graduating!
-		</p>
+      <p class="mb-6 text-lg">
+        If we've helped you over the years, please consider leaving us a review
+        with your thoughts. Congrats on graduating!
+      </p>
 
-		<div class="flex items-center gap-3 mb-6">
-			<a class="link" href="https://github.com/Longhorn-Developers/UT-Registration-Plus/issues/870" target="_blank" rel="noopener">Read issue #870</a>
-			<a class="link" href="https://github.com/Longhorn-Developers/UT-Registration-Plus/pull/871" target="_blank" rel="noopener">See PR #871</a>
-			<Button color="ut-burntorange">Leave a review</Button>
-		</div>
+      <div class="flex items-center justify-center gap-3 mb-6 w-full">
+        <Button color="ut-burntorange">Leave a review</Button>
+      </div>
 
-		<section class="mt-8 p-4 rounded-1" style="background: var(--un-color-ut-offwhite, #D6D2C4);">
-			<h2 class="text-xl font-medium mb-2">Why this page?</h2>
-			<p>
-				This will be a rounded square i havent figured out what to say. Omg maybe ill put our inside jokes here
-			</p>
-		</section>
-	</main>
+      <section
+        class="mt-8 p-4 rounded-lg text-left w-full"
+        style={`background: var(--un-color-ut-offwhite, #D6D2C4); color: ${getThemeColorHexByName("ut-burntorange")}`}
+      >
+        <h2 class="text-xl font-medium mb-2">Why this page?</h2>
+        <p>
+          This will be a rounded square i havent figured out what to say. Omg
+          maybe ill put our inside jokes here
+        </p>
+      </section>
+    </div>
+  </main>
 </BaseLayout>
