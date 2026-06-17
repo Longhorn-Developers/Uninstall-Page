@@ -15,6 +15,7 @@
     "astro": "^6.4.6"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.0",
     "@unocss/preset-mini": "^66.7.2",
     "@unocss/preset-uno": "^66.7.2",
     "@unocss/preset-web-fonts": "^66.7.2",
