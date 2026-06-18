@@ -1,9 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Button from '@components/Button.astro';
-import splashText from '@/shared/other/insideJokes';
-
-const randomSplash = splashText[Math.floor(Math.random() * splashText.length)];
 ---
 <BaseLayout>
   <main class="flex-1 flex items-center justify-center p-6 relative">
@@ -42,8 +39,17 @@ const randomSplash = splashText[Math.floor(Math.random() * splashText.length)];
         </a>
       </div>
     </div>
-    <p class="fixed bottom-4 left-6 text-sm italic text-gray-500">
-      {randomSplash}
+    <p id="splash-text" class="fixed bottom-4 left-6 text-sm italic text-gray-500">
     </p>
   </main>
 </BaseLayout>
+
+<!-- we have to use this script because Astro is a SSG so inside the --- guard this will execute only once at build time -->
+<script>
+  import splashText from '@/shared/other/insideJokes';
+  
+  const splashElement = document.getElementById('splash-text');
+  if (splashElement) {
+    splashElement.textContent = splashText[Math.floor(Math.random() * splashText.length)];
+  }
+</script>
