@@ -18,7 +18,8 @@
 		"check:fix": "biome check --write"
 	},
 	"dependencies": {
-		"astro": "^6.4.6"
+		"astro": "^6.4.6",
+		"astro-seo": "^0.8.4"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.0",

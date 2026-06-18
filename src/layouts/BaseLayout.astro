@@ -1,7 +1,18 @@
 ---
+import { SEO } from 'astro-seo';
 import styles from '@views/components/common/ExtensionRoot.module.scss';
 import Navbar from '@components/Navbar.astro';
 import 'uno.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'UT Registration Plus', 
+  description = 'Making UT Austin course registration slightly less painful.' 
+} = Astro.props;
 ---
 <!-- i actually dont know if this is needed cuz you can just import the root to index.astro, but whatever, it could be good for scaling -->
 <!doctype html>
@@ -10,6 +21,10 @@ import 'uno.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <base target="_blank" />
+    <SEO
+      title={title}
+      description={description}
+    />
   </head>
   <body class:list={[styles.extensionRoot, "bg-slate-50", "h-screen", "overflow-hidden", "flex", "flex-col"]}>
     <Navbar />
