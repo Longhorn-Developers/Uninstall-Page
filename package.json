@@ -1,34 +1,41 @@
 {
-	"name": "purple-parsec",
-	"type": "module",
-	"version": "0.0.1",
-	"engines": {
-		"node": ">=22.12.0"
-	},
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-		"format": "biome format",
-		"format:fix": "biome format --write",
-		"lint": "biome lint",
-		"lint:fix": "biome lint --write",
-		"check": "biome check",
-		"check:fix": "biome check --write"
-	},
-	"dependencies": {
-		"astro": "^6.4.6",
-		"astro-seo": "^0.8.4"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.5.0",
-		"@unocss/preset-mini": "^66.7.2",
-		"@unocss/preset-uno": "^66.7.2",
-		"@unocss/preset-web-fonts": "^66.7.2",
-		"@unocss/transformer-directives": "^66.7.2",
-		"@unocss/transformer-variant-group": "^66.7.2",
-		"sass": "^1.101.0",
-		"unocss": "^66.7.2"
-	}
+  "name": "purple-parsec",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "pnpm run build && wrangler dev",
+    "astro": "astro",
+    "format": "biome format",
+    "format:fix": "biome format --write",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write",
+    "check": "biome check",
+    "check:fix": "biome check --write",
+    "generate-types": "wrangler types",
+    "deploy": "pnpm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.7.0",
+    "astro": "^6.4.6",
+    "astro-seo": "^0.8.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.0",
+    "@unocss/preset-mini": "^66.7.2",
+    "@unocss/preset-uno": "^66.7.2",
+    "@unocss/preset-web-fonts": "^66.7.2",
+    "@unocss/transformer-directives": "^66.7.2",
+    "@unocss/transformer-variant-group": "^66.7.2",
+    "sass": "^1.101.0",
+    "unocss": "^66.7.2",
+    "wrangler": "^4.101.0"
+  },
+  "overrides": {
+    "vite": "^7"
+  }
 }
